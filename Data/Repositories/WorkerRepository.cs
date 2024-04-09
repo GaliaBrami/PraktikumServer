@@ -19,11 +19,11 @@ namespace Solid.Data.Repositories
         }
         public async Task<List<Worker>> GetMembersAsync()
         {
-            return await _context.Workers.Include(u => u.Roles).ToListAsync();
+            return await _context.Workers.Include(u => u.Roles).ThenInclude(r=>r.Name).ToListAsync();
         }
         public async Task<Worker> GetByIdAsync(int id)
         {
-            return await _context.Workers.Include(u => u.Roles).FirstAsync(b => b.Id == id);
+            return await _context.Workers.Include(u => u.Roles).ThenInclude(r => r.Name).FirstAsync(b => b.Id == id);
         }
 
         public async Task<Worker> AddAsync(Worker m)

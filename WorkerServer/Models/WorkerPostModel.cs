@@ -11,6 +11,7 @@ namespace Library.Models
         public string LastName { get; set; }
         public string Identity { get; set; }
         public DateTime BirthDate { get; set; }
+        public DateTime StartDate { get; set; }
         public Gender Gender { get; set; }
         public List<RoleDto> Roles { get; set; }
     }
